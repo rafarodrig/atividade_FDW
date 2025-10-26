@@ -1,0 +1,28 @@
+﻿@model Concesionaria.Models.Vendedor
+
+@{
+    ViewData["Title"] = "Detalhes do Vendedor";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataAdmissao)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.DataAdmissao)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Matricula)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Matricula)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Salario)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Salario)</dd>
+    </dl>
+</div>
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-2">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</div>

@@ -1,0 +1,44 @@
+﻿@model Concesionaria.Models.Nota
+
+@{
+    ViewData["Title"] = "Excluir Nota";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+<hr />
+
+<h4>Tem certeza que deseja excluir esta nota?</h4>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Numero)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Numero)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DataEmissao)</dt>
+        <dd class="col-sm-9">@Model.DataEmissao.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Garantia)</dt>
+        <dd class="col-sm-9">@Model.Garantia.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ValorVenda)</dt>
+        <dd class="col-sm-9">@Model.ValorVenda.ToString("C")</dd>
+
+        <dt class="col-sm-3">Cliente</dt>
+        <dd class="col-sm-9">@Model.Cliente.Nome (@Model.Cliente.Cpf)</dd>
+
+        <dt class="col-sm-3">Vendedor</dt>
+        <dd class="col-sm-9">@Model.Vendedor.Nome (@Model.Vendedor.Matricula)</dd>
+
+        <dt class="col-sm-3">Carro</dt>
+        <dd class="col-sm-9">@Model.Carro.Marca @Model.Carro.Modelo - Chassi: @Model.Carro.Chassi</dd>
+    </dl>
+    
+
+    <form asp-action="Delete" method="post" class="mt-3">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex gap-2">
+            <input type="submit" value="Excluir" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+        </div>
+    </form>
+</div>

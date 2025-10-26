@@ -1,0 +1,75 @@
+﻿@model Concesionaria.Models.Nota
+
+@{
+    ViewData["Title"] = "Cadastrar Nota Fiscal";
+}
+
+<h1 class="mb-3">@ViewData["Title"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Numero" class="form-label"></label>
+                <input asp-for="Numero" class="form-control" />
+                <span asp-validation-for="Numero" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="DataEmissao" class="form-label"></label>
+                <input asp-for="DataEmissao" class="form-control" type="date" />
+                <span asp-validation-for="DataEmissao" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Garantia" class="form-label"></label>
+                <input asp-for="Garantia" class="form-control" type="date" />
+                <span asp-validation-for="Garantia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ValorVenda" class="form-label"></label>
+                <input asp-for="ValorVenda" class="form-control" type="number" step="0.01" min="0" />
+                <span asp-validation-for="ValorVenda" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ClienteId" class="form-label"></label>
+                <select asp-for="ClienteId" class="form-select" asp-items="ViewBag.ClienteId">
+                    <option value="">-- Selecione o Cliente --</option>
+                </select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="VendedorId" class="form-label"></label>
+                <select asp-for="VendedorId" class="form-select" asp-items="ViewBag.VendedorId">
+                    <option value="">-- Selecione o Vendedor --</option>
+                </select>
+                <span asp-validation-for="VendedorId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="CarroId" class="form-label"></label>
+                <select asp-for="CarroId" class="form-select" asp-items="ViewBag.CarroId">
+                    <option value="">-- Selecione o Carro --</option>
+                </select>
+                <span asp-validation-for="CarroId" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
